@@ -24,7 +24,7 @@ function reverse_ip() {
 # starts the dnsmasq nameserver
 function start_nameserver() {
     DNSDIR="/tmp/dnsdir_$RANDOM"
-    DNSFILE="${DNSDIR}/0hosts"
+    export DNSFILE="${DNSDIR}/0hosts"
     mkdir $DNSDIR
 
     echo "starting nameserver container"
