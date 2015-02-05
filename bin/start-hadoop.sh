@@ -1,7 +1,7 @@
 #!/bin/bash
 #Start HDFS service in multiple containers
 
-. env.sh
+. bin/env.sh
 
 MASTER=-1
 MASTER_IP=

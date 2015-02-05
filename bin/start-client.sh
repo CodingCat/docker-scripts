@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. env.sh
+. bin/env.sh
 
 function start_client() {
   echo "starting client container"

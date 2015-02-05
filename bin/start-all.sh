@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. env.sh
+. bin/env.sh
 
 source $SCRIPT_HOME/bin/start-nameserver.sh
 source $SCRIPT_HOME/bin/start-hadoop.sh
