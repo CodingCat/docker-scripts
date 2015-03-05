@@ -1,4 +1,4 @@
-FROM codingcat/dev:basic
+FROM codingcat/dev:cassandra
 
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 

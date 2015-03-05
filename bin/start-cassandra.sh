@@ -13,14 +13,14 @@ function start_cassandra_node() {
         hostname="worker${i}"
         #create work dir
         mkdir -p /Users/nanzhu/code/docker/fs/cassandra/$hostname
-        WORKER=$(docker run -d -t -i --dns $NAMESERVER_IP -h $hostname -v  $LOCAL_FS_HOME/cassandra/$hostname:/mnt/sda1/cassandra  $1:$2 /root/cassandra/start-cassandra-node.sh)
+        WORKER=$(docker run -d -t --dns $NAMESERVER_IP -h $hostname -v  $LOCAL_FS_HOME/cassandra/$hostname:/mnt/sda1/cassandra $1:$2 /root/cassandra/start-cassandra-node.sh)
         if [ "$WORKER" = "" ]; then
             echo "error: could not start node container from image $1:$2"
             exit 1
         fi
 
         echo "started node container:  $WORKER"
-        sleep 3
+        sleep 5
         NODE_IP=$(docker inspect $WORKER 2>&1 | grep -oEi "\"IPAddress\": \"([0-9]{1,3}[\.]){3}[0-9]{1,3}\"" | grep -oEi "([0-9]{1,3}[\.]){3}[0-9]{1,3}")
         echo "address=\"/$hostname/$NODE_IP\"" >> $DNSFILE
         # add reverse dns record

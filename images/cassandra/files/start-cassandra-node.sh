@@ -1,8 +1,6 @@
 #!/bin/bash
 
-echo "Starting cassandra nodes"
-
-service ssh start
+echo "Starting cassandra service"
 
 service cassandra start
 
